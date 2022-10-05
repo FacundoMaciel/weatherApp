@@ -13,7 +13,7 @@ export default function App() {
 
   async function fetchData(cityName) {
     setLoaded(false)
-    const API = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`
+    const API = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`
     try {
       const response = await fetch(API);
       if (response.status == 200) {

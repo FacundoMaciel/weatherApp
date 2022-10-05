@@ -16,8 +16,9 @@ const weather = ({ data, fetchData }) => {
   const {
     weather,
     name,
-    main: { temp, humidity },
+    main: { temp, humidity, feels_like },
     wind: { speed },
+    rain,
   } = data;
   const [{ main }] = weather;
 
@@ -66,19 +67,25 @@ const weather = ({ data, fetchData }) => {
             {main}
           </Text>
           <Text style={{ ...styles.headerText, color: textColor }}>
-            {Math.round(temp - 272)} º
+            {temp}º
           </Text>
         </View>
         <View style={styles.extraInfo}>
           <View style={styles.info}>
-            <Text style={{ fontSize: 22, color: "darkgray" }}>Humidity</Text>
-            <Text style={{ fontSize: 22, color: "darkgray" }}>{humidity} %</Text>
+            <Text style={{ fontSize: 20, color: "black" }}>Feels like</Text>
+            <Text style={{ fontSize: 20, color: "black" }}>{feels_like}º</Text>
           </View>
 
           <View style={styles.info}>
-            <Text style={{ fontSize: 22, color: "darkgray" }}>Wind Speed</Text>
-            <Text style={{ fontSize: 22, color: "darkgray" }}>{Math.round(speed * 2)} km/h</Text>
+            <Text style={{ fontSize: 20, color: "black" }}>Humidity</Text>
+            <Text style={{ fontSize: 20, color: "black" }}>{humidity} %</Text>
           </View>
+
+          <View style={styles.info}>
+            <Text style={{ fontSize: 20, color: "black" }}>Wind Speed</Text>
+            <Text style={{ fontSize: 20, color: "black" }}>{Math.round(speed * 2)} km/h</Text>
+          </View>
+
         </View>
       </ImageBackground>
     </View>
@@ -100,15 +107,17 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   extraInfo: {
-    flexDirection: "row",
+    flexDirection: "greed",
     marginTop: 20,
+    alignItems: "center",
     justifyContent: "space-between",
     padding: 10,
   },
   info: {
     width: Dimensions.get("screen").width / 2.5,
     backgroundColor: "rgba(209, 209, 255, 0.69)",
-    padding: 23,
+    padding: 10,
+    marginVertical: 5,
     borderRadius: 15,
     shadowOpacity: 30,
     justifyContent: "center",

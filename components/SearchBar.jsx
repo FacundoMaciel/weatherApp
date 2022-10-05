@@ -27,15 +27,15 @@ const styles = StyleSheet.create({
     marginTop: 35,
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
-    width: Dimensions.get("screen").width - 20,
+    justifyContent: "center",
+    width: '100%'- 20,
     borderWidth: 1.5,
     paddingVertical: 10,
     borderRadius: 25,
     marginHorizontal: 10,
     paddingHorizontal: 10,
     backgroundColor: "lightgray",
-    borderColor: "lightgray",
+    borderColor: "black",
   },
 });
 
